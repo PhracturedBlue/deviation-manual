@@ -1,0 +1,19 @@
+language: python
+
+python:
+     - "2.7"
+
+env:
+    matrix:
+        - TARGETS="devo8 devo10" MAKETARGET="html pdf"
+
+# use new docker environment
+sudo: false
+
+install:
+    - pip install virtualenv
+
+script:
+    - for i in $TARGETS; do \
+          make TARGET=$i $MAKETARGET; \
+      done
