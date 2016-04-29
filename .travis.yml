@@ -10,16 +10,16 @@ env:
 # use new docker environment
 sudo: false
 
-install:
-    - pip install virtualenv
-
 addons:
   apt:
     packages:
-        - build-essential
+        #- build-essential
         - inkscape
+        
 
 script:
+    - which make
+    - echo "make TARGET='$TARGETS' $MAKETARGET"
     - for i in $TARGETS; do \
           which make
           echo "make TARGET=$i $MAKETARGET"; \
