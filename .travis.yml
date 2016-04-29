@@ -13,7 +13,15 @@ sudo: false
 install:
     - pip install virtualenv
 
+addons:
+  apt:
+    packages:
+        - build-essential
+        - inkscape
+
 script:
     - for i in $TARGETS; do \
+          which make
+          echo "make TARGET=$i $MAKETARGET"; \
           make TARGET=$i $MAKETARGET; \
       done
